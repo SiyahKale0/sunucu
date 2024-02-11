@@ -1,5 +1,6 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import os
+
 app = Flask(__name__)
 
 # Yüklenen dosyaların saklanacağı dizin
@@ -8,7 +9,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def index():
-    return 'Dosya yükleme sunucusuna hoş geldiniz!'
+    return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -21,4 +22,4 @@ def upload_file():
     return ' '
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
