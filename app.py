@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request
 import os
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return 'Dosya yükleme sunucusuna hoş geldiniz!'
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
